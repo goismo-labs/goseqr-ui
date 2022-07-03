@@ -1,2 +1,5 @@
 # goseqr-ui
-the front end for the goseqr
+The front end for the goseqr
+
+# Wiki
+[Useful Links](./docs/links.md)
