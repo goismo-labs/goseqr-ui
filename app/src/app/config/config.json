@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://127.0.0.1:8081/",
+  "apiVersion": "v1",
+  "textfile": "assets/textfile.txt",
+  "date": "2020-01-29"
+}

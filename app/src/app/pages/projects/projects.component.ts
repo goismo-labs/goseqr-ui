@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { PlatformService} from "../../services/platform.service";
+import {Platform} from "../../models/platform.model";
+import {Project} from "../../models/project.model";
 
 declare interface TableData {
   headerRow: string[];
@@ -14,11 +17,25 @@ declare interface TableData {
   templateUrl: 'projects.component.html'
 })
 
-export class ProjectsComponent implements OnInit{
+export class ProjectsComponent implements OnInit {
   myControl = new FormControl('');
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = [];
+  platform: Platform = {
+    "data": [],
+    "message": "...",
+    "success": true
+  }
+  projects: Project[] = []
   filteredOptions: Observable<string[]>;
 
+
+  constructor(private platformService: PlatformService) {}
+  getPlatforms(): void {
+    this.platformService.getPlatforms()
+      .subscribe(platforms => {
+        this.platform = platforms
+      });
+  }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -55,5 +72,6 @@ export class ProjectsComponent implements OnInit{
         ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
       ]
     };
+    this.getPlatforms();
   }
 }

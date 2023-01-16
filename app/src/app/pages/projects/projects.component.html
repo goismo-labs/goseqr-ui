@@ -3,6 +3,9 @@
     <div class="card card-user">
       <div class="card-header">
         <h5 class="card-title">Platform</h5>
+        <ul>
+          <li *ngFor="let item of platform.data">{{ item.name }}</li>
+        </ul>
       </div>
       <div class="card-body">
         <form>
@@ -11,7 +14,7 @@
               <div class="form-group">
                 <label>Choose Platform</label>
                   <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Number</mat-label>
+                    <mat-label>Platform</mat-label>
                     <input type="text"
                            placeholder="Pick one"
                            aria-label="Number"
@@ -24,6 +27,7 @@
                       </mat-option>
                     </mat-autocomplete>
                   </mat-form-field>
+                <label>Selected platform: </label>
                 <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
               </div>
             </div>
@@ -176,6 +180,8 @@
             <div class="col-md-5 pr-1">
               <div class="form-group">
                 <label>Choose Project</label>
+                <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                <label>Selected project: </label>
                 <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
               </div>
             </div>
